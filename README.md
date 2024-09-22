@@ -17,4 +17,5 @@ code instructions for local:
 7. pip install requirements.txt
 8. python newbluesky.py
 9. streamlit run newbluesky.py
-    
+
+   drive - https://drive.google.com/drive/folders/1w9Pqe55qZDsKQeonXtv3qUZo-4xJ45Ei?usp=drive_link
