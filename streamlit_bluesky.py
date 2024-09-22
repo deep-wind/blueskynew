@@ -7,7 +7,7 @@ Created on Mon Oct 31 19:57:21 2022
 
 import streamlit as st
 import pandas as pd
-# import harp
+import harp
 from netCDF4 import Dataset
 import os
 from os.path import join
@@ -62,12 +62,12 @@ enddate='20220905'
 # api.download_all(products_to_download, directory_path='data_new\L2')
 
 
-# input_path="D:/L2/"
-# export_path="C:/Users/PRAMILA/.spyder-py3/bluesky_no2/data/"
+input_path="D:/L2/"
+export_path="C:/Users/PRAMILA/.spyder-py3/bluesky_no2/data/"
 
-# list_files=sorted(os.listdir(input_path))
+list_files=sorted(os.listdir(input_path))
 
-# files_inputs= sorted(list(glob.glob(join(input_path, 'S5P_OFFL_*.nc'))))
+files_inputs= sorted(list(glob.glob(join(input_path, 'S5P_OFFL_*.nc'))))
 # print(files_inputs)
 # for file in list_files:
 #     if file.startswith("S5P_OFFL_")==False:
@@ -90,7 +90,7 @@ enddate='20220905'
 #               }for i in files_inputs
 #                 }
 
-# # #print(dict(itertools.islice(attributes.items(),1)))
+# # # #print(dict(itertools.islice(attributes.items(),1)))
 # export_path1="C:/Users/PRAMILA/.spyder-py3/bluesky_no2/data/L3"
 # files_L3= sorted(list(glob.glob(join(export_path1, 'S5P_OFFL_*.nc'))))
 
@@ -155,7 +155,7 @@ def predict(latitude_input,longitude_input,date):
     st.success(date_range)   
     df=pd.DataFrame(0,columns=['NO2'],index=date_range)
     st.write(df)
-    dt=np.arange(0,3)
+    dt=np.arange(0,2)
 
     st.write(dt)
     
@@ -314,18 +314,18 @@ def main():
     map = st_folium(m, height=350, width=700)
     try:
     
-     	latitude_input=map['last_clicked']['lat']
-     	longitude_input=map['last_clicked']['lng'] 
+     	latitude_input=float(map['last_clicked']['lat'])
+     	longitude_input=float(map['last_clicked']['lng'])
     
      	st.write(latitude_input)
      	st.write(longitude_input)
     except:
      	st.warning("No location choosen")
-    col1,col2 = st.columns(2)         
-    with col1:
-          latitude_input=st.text_input('Latitude (Â°N)')                         
-    with col2:   
-          longitude_input=st.text_input('Longitude (Â°E)')                         
+    # col1,col2 = st.columns(2)         
+    # with col1:
+    #       latitude_input=st.text_input('Latitude (Â°N)')                         
+    # with col2:   
+    #       longitude_input=st.text_input('Longitude (Â°E)')                         
     st.markdown("<h1 style='text-align: left; font-weight:bold;color:black;background-color:white;font-size:11pt;'> Enter the Timing details</h1>",unsafe_allow_html=True)
     #st.date_input('Date', value=None, min_value= value = pd.to_datetime('2010-01-01'), max_value=datetime(2030, 1, 1), key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False)
     date = st.date_input('Date', value =  pd.to_datetime('2021-04-14'),min_value= pd.to_datetime('2021-04-04'),max_value= pd.to_datetime('2021-04-30'))
