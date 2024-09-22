@@ -6,6 +6,7 @@ https://github.com/user-attachments/assets/abeaa807-b535-47ae-82f8-4ff14bdca667
 
 code instructions for local:
 ![image](https://github.com/user-attachments/assets/a9821684-61c5-499e-85b3-ad2202289c45)
+![image](https://github.com/user-attachments/assets/ff84ba92-93f3-45f9-a8e0-e6a21dd47c82)
 
 1. create a folder
 2. download harp zip , extract and place inside the above folder - https://github.com/stcorp/harp/releases/tag/1.23
