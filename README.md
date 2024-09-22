@@ -12,7 +12,7 @@ code instructions for local:
 2. download harp zip , extract and place inside the above folder - https://github.com/stcorp/harp/releases/tag/1.23
 3. conda install -c conda-forge visan
 4. conda install -c conda-forge dask
-5. cd harp > conda acivate visan
+5. cd harp > conda activate visan
 6. cd..
 7. pip install requirements.txt
 8. python newbluesky.py
