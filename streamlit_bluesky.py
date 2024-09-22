@@ -105,32 +105,7 @@ files_inputs= sorted(list(glob.glob(join(input_path, 'S5P_OFFL_*.nc'))))
 # # #print(L3_data)
 
 # L3_data.to_netcdf(path=r"C:\Users\PRAMILA\.spyder-py3\bluesky_no2\5days_combined.nc")
-L3_data1=Dataset(r"5days_combined.nc")
-print(L3_data1.variables.keys())
-lat=L3_data1.variables['latitude'][:]
-lon=L3_data1.variables['longitude'][:]
-time_data=L3_data1.variables['time'][:]
-no2=L3_data1.variables['tropospheric_NO2_column_number_density'][:,:,:]
-latitude_input=28
-longitude_input=77
-sq_diff_lat=(lat-latitude_input)**2
-sq_diff_lon=(lon-longitude_input)**2
 
-min_index_lat=sq_diff_lat.argmin()
-min_index_lon=sq_diff_lon.argmin()
-
-start_date=L3_data1.variables['time'].units[14:24]
-end_date=L3_data1.variables['time'].units[14:18]+'-09-05'
-
-date_range=pd.date_range(start=start_date,end=end_date)
-
-df=pd.DataFrame(0,columns=['no2'],index=date_range)
-dt=np.arange(0,2)
-
-for i in dt:
-    df.iloc[i]=no2[i,min_index_lat,min_index_lon]
-    
-df.to_csv(r"C:\Users\PRAMILA\.spyder-py3\bluesky_no2\5days_combined.csv")
 
 
 def predict(latitude_input,longitude_input,date):
@@ -162,14 +137,14 @@ def predict(latitude_input,longitude_input,date):
     for i in dt:
         df.iloc[i]=no2[i,min_index_lat,min_index_lon]
         
-    df.to_csv(r"C:\Users\PRAMILA\.spyder-py3\bluesky_no2\5days_combined.csv")
+    df.to_csv(r"5days_combined.csv")
     #print(os.path.getsize(r"C:\Users\HP\.spyder-py3\data\days_combined.csv"))
     
     ##############################################
     #            PREDICTION MODULE               #
     ##############################################
     ### Data Collection
-    data_frame=pd.read_csv(r"C:\Users\PRAMILA\.spyder-py3\bluesky_no2\5days_combined.csv")
+    data_frame=pd.read_csv(r"5days_combined.csv")
     df1=data_frame.reset_index()['NO2']
     st.write(df1)
     ### LSTM are sensitive to the scale of the data. so we apply MinMax scaler 
