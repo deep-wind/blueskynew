@@ -1,0 +1,15 @@
+pip
+reportlab
+matplotlib
+numpy 
+textblob
+PyPDF2
+pandas
+streamlit
+netCDF4
+streamlit_folium
+tensorflow
+smopy
+scikit-learn
+sentinelsat
+xarray
