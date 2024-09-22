@@ -7,7 +7,7 @@ Created on Mon Oct 31 19:57:21 2022
 
 import streamlit as st
 import pandas as pd
-import harp
+#import harp
 from netCDF4 import Dataset
 import os
 from os.path import join
@@ -105,7 +105,7 @@ files_inputs= sorted(list(glob.glob(join(input_path, 'S5P_OFFL_*.nc'))))
 # # #print(L3_data)
 
 # L3_data.to_netcdf(path=r"C:\Users\PRAMILA\.spyder-py3\bluesky_no2\5days_combined.nc")
-L3_data1=Dataset(r"C:\Users\PRAMILA\.spyder-py3\bluesky_no2\5days_combined.nc")
+L3_data1=Dataset(r"5days_combined.nc")
 print(L3_data1.variables.keys())
 lat=L3_data1.variables['latitude'][:]
 lon=L3_data1.variables['longitude'][:]
