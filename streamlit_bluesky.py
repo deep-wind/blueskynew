@@ -62,12 +62,12 @@ enddate='20220905'
 # api.download_all(products_to_download, directory_path='data_new\L2')
 
 
-input_path="D:/L2/"
-export_path="C:/Users/PRAMILA/.spyder-py3/bluesky_no2/data/"
+#input_path="D:/L2/"
+#export_path="C:/Users/PRAMILA/.spyder-py3/bluesky_no2/data/"
 
-list_files=sorted(os.listdir(input_path))
+#list_files=sorted(os.listdir(input_path))
 
-files_inputs= sorted(list(glob.glob(join(input_path, 'S5P_OFFL_*.nc'))))
+#files_inputs= sorted(list(glob.glob(join(input_path, 'S5P_OFFL_*.nc'))))
 # print(files_inputs)
 # for file in list_files:
 #     if file.startswith("S5P_OFFL_")==False:
