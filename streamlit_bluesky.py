@@ -104,15 +104,6 @@ enddate='20220905'
 # L3_data=xr.open_mfdataset(files_L3,decode_times=False,combine='nested',concat_dim='time',preprocess=preprocess,chunks={'time':100})
 # # #print(L3_data)
 
-# URL for the ADrive link
-url = "https://drive.google.com/file/d/1RVnGXF9RMYb4qgfHFawlASp1dtZaYwwM/view?usp=drive_link"
-
-# Download the file from ADrive
-response = requests.get(url)
-
-# Save the file locally
-with open("5days_combined.nc", 'wb') as file:
-    file.write(response.content)
 
 # L3_data.to_netcdf(path=r"C:\Users\PRAMILA\.spyder-py3\bluesky_no2\5days_combined.nc")
 L3_data1=Dataset(r"5days_combined.nc")
