@@ -5,7 +5,7 @@ numpy
 textblob
 PyPDF2
 pandas
-streamlit
+streamlit==0.73.1
 netCDF4
 streamlit_folium
 click<=8.0.4
