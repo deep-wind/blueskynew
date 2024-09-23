@@ -28,6 +28,8 @@ xarray
 
 requests
 
+gdown
+
 grpcio-status==1.33.2
 
 protobuf==3.19.6
