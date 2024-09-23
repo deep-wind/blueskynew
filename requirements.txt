@@ -1,4 +1,6 @@
-pip
+streamlit
+
+netCDF4
 
 reportlab
 
@@ -12,10 +14,6 @@ PyPDF2
 
 pandas
 
-streamlit
-
-netCDF4
-
 streamlit_folium
 
 tensorflow
@@ -27,3 +25,7 @@ scikit-learn
 sentinelsat
 
 xarray
+
+grpcio-status==1.33.2
+
+protobuf==3.19.6
