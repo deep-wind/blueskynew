@@ -8,6 +8,9 @@ pandas
 streamlit
 netCDF4
 streamlit_folium
+click<=8.0.4
+pandas
+keras
 tensorflow
 smopy
 scikit-learn
