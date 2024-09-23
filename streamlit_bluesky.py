@@ -30,8 +30,14 @@ import base64
 from streamlit_folium import folium_static
 from streamlit_folium import st_folium
 import folium
+import gdown
 # BlueSky Above: Pollution estimation using hyper-spectral satellite imagery and maps
 
+# Google Drive file ID
+file_id = '1RVnGXF9RMYb4qgfHFawlASp1dtZaYwwM'
+
+# Download the file
+gdown.download(f"https://drive.google.com/uc?export=download&id={file_id}", "5days_combined.nc", quiet=True)
 
 
 # Install a pip package in the current Jupyter kernel
