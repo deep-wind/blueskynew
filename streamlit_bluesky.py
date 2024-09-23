@@ -35,9 +35,15 @@ import gdown
 
 # Google Drive file ID
 file_id = '1RVnGXF9RMYb4qgfHFawlASp1dtZaYwwM'
+local_filename = '5days_combined.nc'
 
-# Download the file
-gdown.download(f"https://drive.google.com/uc?export=download&id={file_id}", "5days_combined.nc", quiet=True)
+# Check if the file already exists
+if not os.path.exists(local_filename):
+    print(f"File {local_filename} not found locally. Downloading...")
+    # Download the file from Google Drive
+    gdown.download(f"https://drive.google.com/uc?export=download&id={file_id}", local_filename, quiet=True)
+else:
+    print(f"File {local_filename} already exists. Skipping download.")
 
 
 # Install a pip package in the current Jupyter kernel
@@ -112,7 +118,8 @@ enddate='20220905'
 
 
 # L3_data.to_netcdf(path=r"C:\Users\PRAMILA\.spyder-py3\bluesky_no2\5days_combined.nc")
-L3_data1=Dataset(r"5days_combined.nc")
+L3_data1 = Dataset(local_filename)
+# L3_data1=Dataset(r"5days_combined.nc")
 print(L3_data1.variables.keys())
 lat=L3_data1.variables['latitude'][:]
 lon=L3_data1.variables['longitude'][:]
