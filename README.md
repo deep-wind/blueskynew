@@ -4,6 +4,8 @@
 
 - We download the hyperspectral sentinel 5P satellite data from the copernicus datahub.
 - This may download upto 9.4 GB of netCDF data. More info navigate to this page - https://sentinels.copernicus.eu/web/sentinel/missions/sentinel-5p.
+- For reliable functioning of the NO2 estimation model, satellite data upto 5 days prior to the time of estimation needs to be available.
+-  **Note:** When prompted to enter the 'start date', enter a date at least 3 days prior to the date when the first estimation is required.
 
 https://github.com/user-attachments/assets/abeaa807-b535-47ae-82f8-4ff14bdca667
 
