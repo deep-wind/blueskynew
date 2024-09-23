@@ -105,6 +105,12 @@ enddate='20220905'
 # # #print(L3_data)
 
 # L3_data.to_netcdf(path=r"C:\Users\PRAMILA\.spyder-py3\bluesky_no2\5days_combined.nc")
+L3_data1=Dataset(r"5days_combined.nc")
+print(L3_data1.variables.keys())
+lat=L3_data1.variables['latitude'][:]
+lon=L3_data1.variables['longitude'][:]
+time_data=L3_data1.variables['time'][:]
+no2=L3_data1.variables['tropospheric_NO2_column_number_density'][:,:,:]
 
 
 
