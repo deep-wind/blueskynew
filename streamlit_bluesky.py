@@ -200,8 +200,14 @@ def predict(latitude_input,longitude_input,date):
     # print(X_test.shape), print(ytest.shape)
   
     # reshape input to be [samples, time steps, features] which is required for LSTM
-    X_train =X_train.reshape(X_train.shape[0],X_train.shape[1] , 1)
-    X_test = X_test.reshape(X_test.shape[0],X_test.shape[1] , 1)
+    if len(X_train.shape) == 1:  # 1D
+        X_train = X_train.reshape(X_train.shape[0], 1, 1)
+        X_test = X_test.reshape(X_test.shape[0], 1, 1)
+    elif len(X_train.shape) == 2:  # 2D
+        X_train = X_train.reshape(X_train.shape[0], X_train.shape[1], 1)
+        X_test = X_test.reshape(X_test.shape[0], X_test.shape[1], 1)
+    # X_train =X_train.reshape(X_train.shape[0],X_train.shape[1] , 1)
+    # X_test = X_test.reshape(X_test.shape[0],X_test.shape[1] , 1)
 
     st.info(X_train.shape)
     st.info(y_train.shape)
