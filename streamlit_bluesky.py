@@ -149,10 +149,10 @@ def predict(latitude_input,longitude_input,date):
     date_range=pd.date_range(start=start_date,end=end_date)
     st.success(date_range)   
     df=pd.DataFrame(0,columns=['NO2'],index=date_range)
-    st.write(df)
-    dt=np.arange(0,5)
+    # st.write(df)
+    dt=np.arange(0,4)
 
-    st.write(dt)
+    # st.write(dt)
     
     for i in dt:
         df.iloc[i]=no2[i,min_index_lat,min_index_lon]
@@ -184,8 +184,8 @@ def predict(latitude_input,longitude_input,date):
     print(train_data)
     print(test_data)
     
-    st.write(train_data)
-    st.write(test_data)
+    # st.write(train_data)
+    # st.write(test_data)
        
     
     # convert an array of values into a dataset matrix
@@ -210,8 +210,8 @@ def predict(latitude_input,longitude_input,date):
     X_train =X_train.reshape(X_train.shape[0],X_train.shape[1] , 1)
     X_test = X_test.reshape(X_test.shape[0],X_test.shape[1] , 1)
 
-    st.info(X_train.shape)
-    st.info(y_train.shape)
+    # st.info(X_train.shape)
+    # st.info(y_train.shape)
     
     # print(X_test.shape), print(ytest.shape)
     
