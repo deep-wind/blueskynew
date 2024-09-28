@@ -208,11 +208,6 @@ def predict(latitude_input,longitude_input,date):
     st.info(y_train.shape)
     
     # print(X_test.shape), print(ytest.shape)
-  
-    # reshape input to be [samples, time steps, features] which is required for LSTM
-    X_train =X_train.reshape(X_train.shape[0],X_train.shape[1] , 1)
-    X_test = X_test.reshape(X_test.shape[0],X_test.shape[1] , 1)
-    st.write(X_train)
     
     ### Create the Stacked LSTM model
     model=Sequential()
