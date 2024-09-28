@@ -1,4 +1,3 @@
-pip
 streamlit
 netCDF4
 reportlab
