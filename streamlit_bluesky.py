@@ -31,6 +31,11 @@ from streamlit_folium import folium_static
 from streamlit_folium import st_folium
 import folium
 import gdown
+
+# specify that TensorFlow performs computations using the CPU
+os.environ['TF_ENABLE_MLIR_OPTIMIZATIONS'] = '1'
+
+
 # BlueSky Above: Pollution estimation using hyper-spectral satellite imagery and maps
 
 # Google Drive file ID
@@ -44,6 +49,8 @@ if not os.path.exists(local_filename):
     gdown.download(f"https://drive.google.com/uc?export=download&id={file_id}", local_filename, quiet=True)
 else:
     print(f"File {local_filename} already exists. Skipping download.")
+
+
 
 
 # Install a pip package in the current Jupyter kernel
