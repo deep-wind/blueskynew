@@ -169,15 +169,21 @@ def predict(latitude_input,longitude_input,date):
     st.write(df1)
     ### LSTM are sensitive to the scale of the data. so we apply MinMax scaler 
 
+    df1 = df1.fillna(0)
+    ### LSTM are sensitive to the scale of the data. so we apply MinMax scaler 
+
     scaler=MinMaxScaler(feature_range=(0,1))
     df1=scaler.fit_transform(np.array(df1).reshape(-1,1))
     
     ##splitting dataset into train and test split
 
 
-    training_size=int(len(df1)*0.55)
+    training_size=int(len(df1)*0.90)
     test_size=len(df1)-training_size
-    train_data,test_data=df1[0:training_size,:],df1[training_size:len(df1),:1]
+    train_data,test_data=df1[0:training_size,:],df1[test_size:len(df1),:]
+    print(train_data)
+    print(test_data)
+    
     st.write(train_data)
     st.write(test_data)
        
