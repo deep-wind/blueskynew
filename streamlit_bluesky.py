@@ -178,9 +178,9 @@ def predict(latitude_input,longitude_input,date):
     ##splitting dataset into train and test split
 
 
-    training_size=int(len(df1)*0.90)
+    training_size=int(len(df1)*0.70)
     test_size=len(df1)-training_size
-    train_data,test_data=df1[0:training_size,:],df1[test_size:len(df1),:]
+    train_data,test_data=df1[0:training_size,:],df1[test_size:len(df1),:1]
     print(train_data)
     print(test_data)
     
