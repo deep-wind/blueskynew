@@ -3,7 +3,6 @@ netCDF4
 reportlab
 matplotlib
 numpy
-cudatoolkit
 textblob
 PyPDF2
 pandas
