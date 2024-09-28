@@ -150,7 +150,7 @@ def predict(latitude_input,longitude_input,date):
     st.success(date_range)   
     df=pd.DataFrame(0,columns=['NO2'],index=date_range)
     st.write(df)
-    dt=np.arange(0,4)
+    dt=np.arange(0,5)
 
     st.write(dt)
     
@@ -304,7 +304,16 @@ def main():
     st.markdown("<h1 style ='color:green; text_align:center;font-family:times new roman;font-weight: bold;font-size:20pt;'>NO2 PREDICTION </h1>", unsafe_allow_html=True)  
     st.markdown("<h1 style='text-align: left; font-weight:bold;color:black;background-color:white;font-size:11pt;'> Enter the Location Details</h1>",unsafe_allow_html=True)
     st.markdown("<h1 style='text-align: left; font-weight:bold;color:black;background-color:white;font-size:11pt;'> Choose any Location </h1>",unsafe_allow_html=True)
-
+    st.markdown(
+        """
+    <style>
+        iframe {
+            height: 400px !important;
+        }
+    </style>
+    """,
+        unsafe_allow_html=True,
+    )
     m = folium.Map()
     m.add_child(folium.LatLngPopup())
     map = st_folium(m, height=500, width=700)
