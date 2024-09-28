@@ -8,6 +8,10 @@ matplotlib
 
 numpy 
 
+cudnn 
+
+cudatoolkit
+
 textblob
 
 PyPDF2
