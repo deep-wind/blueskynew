@@ -150,7 +150,7 @@ def predict(latitude_input,longitude_input,date):
     st.success(date_range)   
     df=pd.DataFrame(0,columns=['NO2'],index=date_range)
     st.write(df)
-    dt=np.arange(0,2)
+    dt=np.arange(0,4)
 
     st.write(dt)
     
@@ -307,7 +307,7 @@ def main():
 
     m = folium.Map()
     m.add_child(folium.LatLngPopup())
-    map = st_folium(m, height=200, width=700)
+    map = st_folium(m, height=500, width=700)
     try:
      	latitude_input=float(map['last_clicked']['lat'])
      	longitude_input=float(map['last_clicked']['lng'])
