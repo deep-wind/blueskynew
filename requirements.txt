@@ -1,4 +1,4 @@
-pip == 24.2
+pip
 streamlit
 netCDF4
 reportlab
