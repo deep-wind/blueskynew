@@ -339,7 +339,7 @@ def main():
         latitude_input=float(latitude_input)
         longitude_input=float(longitude_input)
         st.success(latitude_input)
-        st.success(latitude_input)
+        st.success(longitude_input)
         # df_map = pd.DataFrame(
         #   np.random.randn(1000, 2) / [50, 50] + [latitude_input,longitude_input],
         #   columns=['lat', 'lon'])
