@@ -333,7 +333,7 @@ def main():
     #       longitude_input=st.text_input('Longitude (Â°E)')                         
     st.markdown("<h1 style='text-align: left; font-weight:bold;color:black;background-color:white;font-size:11pt;'> Enter the Timing details</h1>",unsafe_allow_html=True)
     #st.date_input('Date', value=None, min_value= value = pd.to_datetime('2010-01-01'), max_value=datetime(2030, 1, 1), key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False)
-    date = st.date_input('Date', value =  pd.to_datetime('2024-09-06'),min_value= pd.to_datetime('2024-09-06'),max_value= pd.to_datetime('2024-09-30'))
+    date = st.date_input('Date', value =  pd.to_datetime('2024-09-06'),min_value= pd.to_datetime('2024-09-06'),max_value= pd.to_datetime('2025-09-06'))
     
     if st.button("Predict"):
         latitude_input=float(latitude_input)
