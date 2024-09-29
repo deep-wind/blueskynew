@@ -132,11 +132,24 @@ def predict(latitude_input, longitude_input, date):
     
     st.info("Train predictions complete")
     st.info("Test predictions complete")
-
-    # Calculate RMSE
-    st.write("Train RMSE:", math.sqrt(mean_squared_error(y_train, train_predict)))
-    st.write("Test RMSE:", math.sqrt(mean_squared_error(ytest, test_predict)))
-
+    ### Calculate RMSE performance metrics
+    
+    math.sqrt(mean_squared_error(y_train,train_predict))
+    
+    ### Test Data RMSE
+    math.sqrt(mean_squared_error(ytest,test_predict))
+    
+    ### Plotting 
+    # shift train predictions for plotting
+    look_back=1
+    trainPredictPlot = np.empty_like(df1)
+    trainPredictPlot[:, :] = np.nan
+    trainPredictPlot[look_back:len(train_predict)+look_back, :] = train_predict
+    # shift test predictions for plotting
+    testPredictPlot = np.empty_like(df1)
+    testPredictPlot[:, :] = np.nan
+    testPredictPlot[len(train_predict)+(look_back*2)+1:len(df1)-1, :] = test_predict
+   
     # Future predictions
     x_input = test_data[len(test_data) - 1:].reshape(1, -1)
     temp_input = list(x_input)
