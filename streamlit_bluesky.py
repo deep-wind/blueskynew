@@ -20,6 +20,7 @@ from sklearn.preprocessing import MinMaxScaler
 from streamlit_folium import folium_static, st_folium
 import folium
 import gdown
+import math
 
 # specify that TensorFlow performs computations using the CPU
 os.environ['TF_ENABLE_MLIR_OPTIMIZATIONS'] = '1'
@@ -129,12 +130,12 @@ def predict(latitude_input, longitude_input, date):
     train_predict = scaler.inverse_transform(train_predict)
     test_predict = scaler.inverse_transform(test_predict)
     
-    print("Train predictions complete")
-    print("Test predictions complete")
+    st.info("Train predictions complete")
+    st.info("Test predictions complete")
 
     # Calculate RMSE
-    print("Train RMSE:", math.sqrt(mean_squared_error(y_train, train_predict)))
-    print("Test RMSE:", math.sqrt(mean_squared_error(ytest, test_predict)))
+    st.write("Train RMSE:", math.sqrt(mean_squared_error(y_train, train_predict)))
+    st.write("Test RMSE:", math.sqrt(mean_squared_error(ytest, test_predict)))
 
     # Future predictions
     x_input = test_data[len(test_data) - 1:].reshape(1, -1)
