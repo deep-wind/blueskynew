@@ -232,7 +232,7 @@ def predict(latitude_input,longitude_input,date):
     
     
     model.summary()
-    model.fit(X_train,y_train,validation_data=(X_test,ytest),epochs=35,batch_size=8,verbose=1)
+    model.fit(X_train,y_train,validation_data=(X_test,ytest),epochs=50,batch_size=8,verbose=1)
     
 
     ### Lets Do the prediction and check performance metrics
