@@ -67,8 +67,8 @@ geojsonstring='{{"type":"FeatureCollection","features":[{{"type":"Feature","prop
 api = SentinelAPI('s5pguest', 's5pguest' , 'https://s5phub.copernicus.eu/dhus')
 footprint = geojson_to_wkt(json.loads(geojsonstring))
 
-startdate='20240901'
-enddate='20220905'
+startdate='20220905'
+enddate='20240901'
 
 L3_data1 = Dataset(local_filename)
 print("Dataset loaded successfully.")
