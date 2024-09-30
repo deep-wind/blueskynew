@@ -279,9 +279,7 @@ def main():
         longitude_input = float(longitude_input)
         date = str(date)
         st.success(f"Predicting NO2 level for the location (Lat: {latitude_input}, Lon: {longitude_input}) on {date}")
-        st.success(f"Predicting NO2 level for the location (Lat: {latitude_input}, Lon: {longitude_input}) on {date}")
         output = predict(latitude_input, longitude_input, date)
-        st.success('Predicted NO2 Concentration is {} molecules/cm2'.format(round(output,4))) 
         st.info(f"NO2 level predicted: {output} mol/m²")
         
         # st.info(f"Predicted NO2 Concentration is {output} molecules/cm2".format(round(result,4))) 
