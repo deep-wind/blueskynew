@@ -106,10 +106,7 @@ def predict(latitude_input, longitude_input, date):
     ##############################################
     #            PREDICTION MODULE               #
     ##############################################
-    
-    ##############################################
-    #            PREDICTION MODULE               #
-    ##############################################
+   
     ### Data Collection
     data_frame=pd.read_csv(r"5days_combined.csv")
     df1=data_frame.reset_index()['NO2']
@@ -255,7 +252,7 @@ def main():
     
     m = folium.Map()
     m.add_child(folium.LatLngPopup())
-    map = st_folium(m, height=500, width=700)
+    map = st_folium(m, height=400, width=700)
     try:
         latitude_input = float(map['last_clicked']['lat'])
         longitude_input = float(map['last_clicked']['lng'])
@@ -275,7 +272,7 @@ def main():
         output = predict(latitude_input, longitude_input, date)
         st.success(f"NO2 level predicted: {output} mol/m²")
         
-        st.info(f"Predicted NO2 Concentration is {output} molecules/cm2".format(round(result,4))) 
+        # st.info(f"Predicted NO2 Concentration is {output} molecules/cm2".format(round(result,4))) 
 
 if __name__ == '__main__':
     main()
