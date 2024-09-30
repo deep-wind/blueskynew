@@ -105,10 +105,7 @@ def predict(latitude_input, longitude_input, date):
         
     df.to_csv(r"5days_combined.csv")
 
-    # Create a heatmap
-    fig = px.imshow(df.T, aspect="auto", color_continuous_scale='Viridis')
-    st.write("Heatmap of NO2 Concentration:")
-    st.plotly_chart(fig)
+    
     ##############################################
     #            PREDICTION MODULE               #
     ##############################################
