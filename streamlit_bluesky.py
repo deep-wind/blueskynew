@@ -30,6 +30,7 @@ from streamlit_folium import folium_static
 from streamlit_folium import st_folium
 import folium
 import gdown
+import plotly.express as px
 
 # specify that TensorFlow performs computations using the CPU
 os.environ['TF_ENABLE_MLIR_OPTIMIZATIONS'] = '1'
@@ -91,6 +92,7 @@ def predict(latitude_input, longitude_input, date):
     
     start_date = L3_data1.variables['time'].units[14:24]
     end_date = L3_data1.variables['time'].units[14:18] + '-09-05'
+    date_range = pd.date_range(start=start_date, end=end_date)
     
     date_range = pd.date_range(start=start_date, end=end_date)
     st.success(f"Date range: {date_range}")
@@ -102,7 +104,11 @@ def predict(latitude_input, longitude_input, date):
         df.iloc[i] = no2[i, min_index_lat, min_index_lon]
         
     df.to_csv(r"5days_combined.csv")
-    
+
+    # Create a heatmap
+    fig = px.imshow(df.T, aspect="auto", color_continuous_scale='Viridis')
+    st.write("Heatmap of NO2 Concentration:")
+    st.plotly_chart(fig)
     ##############################################
     #            PREDICTION MODULE               #
     ##############################################
