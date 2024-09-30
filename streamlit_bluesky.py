@@ -242,7 +242,7 @@ def predict(latitude_input, longitude_input, date):
     # st.write(df3)
     no2_output=pd.DataFrame(scaler.inverse_transform(lst_output),columns=['NO2 Concentration ðŸ­'])
     st.write(no2_output)
-    output= (no2_output.at[predict_days-1,'NO2 Concentration­'])
+    output = no2_output.at[predict_days - 1, 'NO2 Concentration']
     return output
 
 
@@ -267,8 +267,11 @@ def main():
         longitude_input = float(longitude_input)
         date = str(date)
         st.success(f"Predicting NO2 level for the location (Lat: {latitude_input}, Lon: {longitude_input}) on {date}")
+        st.success(f"Predicting NO2 level for the location (Lat: {latitude_input}, Lon: {longitude_input}) on {date}")
         output = predict(latitude_input, longitude_input, date)
         st.success(f"NO2 level predicted: {output} mol/m²")
+        
+        st.info(f"Predicted NO2 Concentration is {output} molecules/cm2".format(round(result,4))) 
 
 if __name__ == '__main__':
     main()
