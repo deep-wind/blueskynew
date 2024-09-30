@@ -1,3 +1,4 @@
+> #### https://www.hackerearth.com/challenges/hackathon/ieee-machine-learning-hackathon/
 ### Project Outline: Solar Image-Based NO2 Prediction System
 
 **Objective**: Develop an interactive system that predicts NO2 levels based on satellite imagery, time-series LSTM models, and user-selected geographic locations. The tool leverages hyperspectral satellite data and geospatial visualization techniques to display predictions of NO2 concentrations over specified regions and dates.
