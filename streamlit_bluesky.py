@@ -31,6 +31,9 @@ from streamlit_folium import st_folium
 import folium
 import gdown
 import plotly.express as px
+import sys
+from sentinelsat import SentinelAPI, geojson_to_wkt
+import json
 
 # specify that TensorFlow performs computations using the CPU
 os.environ['TF_ENABLE_MLIR_OPTIMIZATIONS'] = '1'
@@ -50,16 +53,13 @@ if not os.path.exists(local_filename):
 else:
     print(f"File {local_filename} already exists locally. Skipping download.")
 
-# Install a pip package in the current Jupyter kernel
-import sys
 
 # Latitude and Longitude boundaries
 LatMin=51.25
 LatMax=51.75
 LngMin=-0.6
 LngMax=0.28
-from sentinelsat import SentinelAPI, geojson_to_wkt
-import json
+
 
 geojsonstring='{{"type":"FeatureCollection","features":[{{"type":"Feature","properties":{{}},"geometry":{{"type":"Polygon","coordinates":[[[{LongiMin},{LatiMin}],[{LongiMax},{LatiMin}],[{LongiMax},{LatiMax}],[{LongiMin},{LatiMax}],[{LongiMin},{LatiMin}]]]}}}}]}}'.format(LongiMin=LngMin,LatiMin=LatMin,LongiMax=LngMax,LatiMax=LatMax)
 
