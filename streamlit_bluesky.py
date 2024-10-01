@@ -257,7 +257,7 @@ def predict(latitude_input, longitude_input, date):
     output = no2_output.at[predict_days - 1, 'NO2 Concentration (mol/m²)']
     
     # Return the formatted output, limiting the concentration to 4 decimal places
-    return round(output, 4)
+    return output
 
     # st.write(df3)
     # no2_output=pd.DataFrame(scaler.inverse_transform(lst_output),columns=['NO2 Concentration ðŸ­'])
