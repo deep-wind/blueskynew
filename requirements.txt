@@ -2,12 +2,12 @@ streamlit
 netCDF4
 reportlab
 matplotlib
-numpy
+numpy --upgrade
 textblob
 PyPDF2
 pandas
 streamlit_folium
-tensorflow
+tensorflow --upgrade
 smopy
 scikit-learn
 sentinelsat
@@ -17,3 +17,4 @@ gdown
 grpcio-status==1.33.2
 protobuf==3.19.6
 plotly
+
