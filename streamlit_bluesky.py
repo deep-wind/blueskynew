@@ -31,9 +31,6 @@ from streamlit_folium import st_folium
 import folium
 import gdown
 import plotly.express as px
-import sys
-from sentinelsat import SentinelAPI, geojson_to_wkt
-import json
 
 # specify that TensorFlow performs computations using the CPU
 os.environ['TF_ENABLE_MLIR_OPTIMIZATIONS'] = '1'
@@ -53,13 +50,16 @@ if not os.path.exists(local_filename):
 else:
     print(f"File {local_filename} already exists locally. Skipping download.")
 
+# Install a pip package in the current Jupyter kernel
+import sys
 
 # Latitude and Longitude boundaries
 LatMin=51.25
 LatMax=51.75
 LngMin=-0.6
 LngMax=0.28
-
+from sentinelsat import SentinelAPI, geojson_to_wkt
+import json
 
 geojsonstring='{{"type":"FeatureCollection","features":[{{"type":"Feature","properties":{{}},"geometry":{{"type":"Polygon","coordinates":[[[{LongiMin},{LatiMin}],[{LongiMax},{LatiMin}],[{LongiMax},{LatiMax}],[{LongiMin},{LatiMax}],[{LongiMin},{LatiMin}]]]}}}}]}}'.format(LongiMin=LngMin,LatiMin=LatMin,LongiMax=LngMax,LatiMax=LatMax)
 
@@ -67,8 +67,8 @@ geojsonstring='{{"type":"FeatureCollection","features":[{{"type":"Feature","prop
 api = SentinelAPI('s5pguest', 's5pguest' , 'https://s5phub.copernicus.eu/dhus')
 footprint = geojson_to_wkt(json.loads(geojsonstring))
 
-startdate='20220905'
-enddate='20240901'
+startdate='20240901'
+enddate='20220905'
 
 L3_data1 = Dataset(local_filename)
 print("Dataset loaded successfully.")
@@ -236,34 +236,34 @@ def predict(latitude_input, longitude_input, date):
         
     
     print(lst_output)
-    # # Create a DataFrame from the scaled NO2 output with the date range
-    # no2_output = pd.DataFrame(scaler.inverse_transform(lst_output), 
-    #                           columns=['NO2 Concentration (mol/m²)'])
+    # Create a DataFrame from the scaled NO2 output with the date range
+    no2_output = pd.DataFrame(scaler.inverse_transform(lst_output), 
+                              columns=['NO2 Concentration (mol/m²)'])
     
-    # # Add the date range as a column
-    # no2_output['Date'] = pd.date_range(start=start_date, periods=predict_days, freq='D')
+    # Add the date range as a column
+    no2_output['Date'] = pd.date_range(start=start_date, periods=predict_days, freq='D')
     
-    # # Reorder the columns to have 'Date' first
-    # no2_output = no2_output[['Date', 'NO2 Concentration (mol/m²)']]
+    # Reorder the columns to have 'Date' first
+    no2_output = no2_output[['Date', 'NO2 Concentration (mol/m²)']]
     
-    # # Style the DataFrame to highlight NO2 values using a color gradient
-    # styled_no2_output = no2_output.style.background_gradient(cmap='YlOrRd', subset=['NO2 Concentration (mol/m²)'])
+    # Style the DataFrame to highlight NO2 values using a color gradient
+    styled_no2_output = no2_output.style.background_gradient(cmap='YlOrRd', subset=['NO2 Concentration (mol/m²)'])
     
-    # # Display the styled DataFrame with date and NO2 concentration
-    # st.write("Predicted NO2 Concentration for Future Days with Date:")
-    # st.dataframe(styled_no2_output)
+    # Display the styled DataFrame with date and NO2 concentration
+    st.write("Predicted NO2 Concentration for Future Days with Date:")
+    st.dataframe(styled_no2_output)
     
-    # # Extract the NO2 concentration for the specific number of predicted days
-    # output = no2_output.at[predict_days - 1, 'NO2 Concentration (mol/m²)']
+    # Extract the NO2 concentration for the specific number of predicted days
+    output = no2_output.at[predict_days - 1, 'NO2 Concentration (mol/m²)']
     
-    # # Return the formatted output, limiting the concentration to 4 decimal places
-    # return output
+    # Return the formatted output, limiting the concentration to 4 decimal places
+    return round(output, 4)
 
-    st.write(df3)
-    no2_output=pd.DataFrame(scaler.inverse_transform(lst_output),columns=['NO2 Concentration ðŸ­'])
-    st.write(no2_output)
-    output= (no2_output.at[predict_days-1,'NO2 Concentration ðŸ­'])
-    return output
+    # st.write(df3)
+    # no2_output=pd.DataFrame(scaler.inverse_transform(lst_output),columns=['NO2 Concentration ðŸ­'])
+    # st.write(no2_output)
+    # output= (no2_output.at[predict_days-1,'NO2 Concentration ðŸ­'])
+    # return output
     
 
 
@@ -305,4 +305,4 @@ def main():
         # st.info(f"Predicted NO2 Concentration is {output} molecules/cm2".format(round(result,4))) 
 
 if __name__ == '__main__':
-    main()
+    main() i want to make a flow diagram to explain how this project works to a very basic beginner with some sample example
