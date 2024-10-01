@@ -2,12 +2,12 @@ streamlit
 netCDF4
 reportlab
 matplotlib
-numpy --upgrade
+numpy
 textblob
 PyPDF2
 pandas
 streamlit_folium
-tensorflow --upgrade
+tensorflow
 smopy
 scikit-learn
 sentinelsat
