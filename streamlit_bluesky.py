@@ -236,34 +236,34 @@ def predict(latitude_input, longitude_input, date):
         
     
     print(lst_output)
-    # Create a DataFrame from the scaled NO2 output with the date range
-    no2_output = pd.DataFrame(scaler.inverse_transform(lst_output), 
-                              columns=['NO2 Concentration (mol/m²)'])
+    # # Create a DataFrame from the scaled NO2 output with the date range
+    # no2_output = pd.DataFrame(scaler.inverse_transform(lst_output), 
+    #                           columns=['NO2 Concentration (mol/m²)'])
     
-    # Add the date range as a column
-    no2_output['Date'] = pd.date_range(start=start_date, periods=predict_days, freq='D')
+    # # Add the date range as a column
+    # no2_output['Date'] = pd.date_range(start=start_date, periods=predict_days, freq='D')
     
-    # Reorder the columns to have 'Date' first
-    no2_output = no2_output[['Date', 'NO2 Concentration (mol/m²)']]
+    # # Reorder the columns to have 'Date' first
+    # no2_output = no2_output[['Date', 'NO2 Concentration (mol/m²)']]
     
-    # Style the DataFrame to highlight NO2 values using a color gradient
-    styled_no2_output = no2_output.style.background_gradient(cmap='YlOrRd', subset=['NO2 Concentration (mol/m²)'])
+    # # Style the DataFrame to highlight NO2 values using a color gradient
+    # styled_no2_output = no2_output.style.background_gradient(cmap='YlOrRd', subset=['NO2 Concentration (mol/m²)'])
     
-    # Display the styled DataFrame with date and NO2 concentration
-    st.write("Predicted NO2 Concentration for Future Days with Date:")
-    st.dataframe(styled_no2_output)
+    # # Display the styled DataFrame with date and NO2 concentration
+    # st.write("Predicted NO2 Concentration for Future Days with Date:")
+    # st.dataframe(styled_no2_output)
     
-    # Extract the NO2 concentration for the specific number of predicted days
-    output = no2_output.at[predict_days - 1, 'NO2 Concentration (mol/m²)']
+    # # Extract the NO2 concentration for the specific number of predicted days
+    # output = no2_output.at[predict_days - 1, 'NO2 Concentration (mol/m²)']
     
-    # Return the formatted output, limiting the concentration to 4 decimal places
-    return output
-
-    # st.write(df3)
-    # no2_output=pd.DataFrame(scaler.inverse_transform(lst_output),columns=['NO2 Concentration ðŸ­'])
-    # st.write(no2_output)
-    # output= (no2_output.at[predict_days-1,'NO2 Concentration ðŸ­'])
+    # # Return the formatted output, limiting the concentration to 4 decimal places
     # return output
+
+    st.write(df3)
+    no2_output=pd.DataFrame(scaler.inverse_transform(lst_output),columns=['NO2 Concentration ðŸ­'])
+    st.write(no2_output)
+    output= (no2_output.at[predict_days-1,'NO2 Concentration ðŸ­'])
+    return output
     
 
 
