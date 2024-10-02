@@ -68,7 +68,7 @@ api = SentinelAPI('s5pguest', 's5pguest' , 'https://s5phub.copernicus.eu/dhus')
 footprint = geojson_to_wkt(json.loads(geojsonstring))
 
 startdate='20240901'
-enddate='20220905'
+enddate='20240905'
 
 L3_data1 = Dataset(local_filename)
 print("Dataset loaded successfully.")
@@ -90,7 +90,8 @@ def predict(latitude_input, longitude_input, date):
     min_index_lat = sq_diff_lat.argmin()
     min_index_lon = sq_diff_lon.argmin()
     
-    start_date = L3_data1.variables['time'].units[14:24]
+    # start_date = L3_data1.variables['time'].units[14:24]
+    start_date = date
     end_date = L3_data1.variables['time'].units[14:18] + '-09-05'
     date_range = pd.date_range(start=start_date, end=end_date)
     
@@ -103,7 +104,7 @@ def predict(latitude_input, longitude_input, date):
     for i in dt:
         df.iloc[i] = no2[i, min_index_lat, min_index_lon]
         
-    df.to_csv(r".spyder-py3/project/data/20days_combined.csv")
+    df.to_csv(r"5days_combined.csv")
 
     
     ##############################################
@@ -111,7 +112,7 @@ def predict(latitude_input, longitude_input, date):
     ##############################################
    
     ### Data Collection
-    data_frame=pd.read_csv(r".spyder-py3/project/data/20days_combined.csv")
+    data_frame=pd.read_csv(r"5days_combined.csv")
     df1=data_frame.reset_index()['NO2']
     st.write(df1)
     ### LSTM are sensitive to the scale of the data. so we apply MinMax scaler 
@@ -236,6 +237,8 @@ def predict(latitude_input, longitude_input, date):
         
     
     print(lst_output)
+    
+    
     # Create a DataFrame from the scaled NO2 output with the date range
     no2_output = pd.DataFrame(scaler.inverse_transform(lst_output), 
                               columns=['NO2 Concentration (mol/m²)'])
