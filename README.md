@@ -8,37 +8,37 @@
 ---
 OverAll Flow:
 
-1. Start
-2. Download Satellite Data
-   └─> Check if file exists
-       ├─> Yes: Load dataset
-       └─> No: Download from Google Drive
-3. Input Latitude and Longitude
-   ├─> Example: Latitude = 51.5, Longitude = -0.1
-4. Input Date Range
-   ├─> Example: Date = '2024-09-06'
-5. Predict NO2 Concentration
-   ├─> Calculate Distance to Nearest Coordinates
-   ├─> Extract NO2 Data from Dataset
-   ├─> Preprocess Data
-   ├─> Scale Data using MinMaxScaler
-   ├─> Split Data into Training and Testing Sets
-   ├─> Create LSTM Model
-   ├─> Train LSTM Model
-   ├─> Make Predictions
-   └─> Transform Predictions Back to Original Scale
-6. Generate Prediction Output
-   ├─> Create DataFrame with Dates and Predictions
-   └─> Example Output:
-       ┌─────────────┬───────────────────────────────┐
-       │     Date    │ NO2 Concentration (mol/m²)   │
-       ├─────────────┼───────────────────────────────┤
-       │ 2024-09-07  │              0.0325           │
-       │ 2024-09-08  │              0.0347           │
-       │ 2024-09-09  │              0.0301           │
-       │ 2024-09-10  │              0.0298           │
-       └─────────────┴───────────────────────────────┘
-7. End
+      1. Start
+      2. Download Satellite Data
+         └─> Check if file exists
+             ├─> Yes: Load dataset
+             └─> No: Download from Google Drive
+      3. Input Latitude and Longitude
+         ├─> Example: Latitude = 51.5, Longitude = -0.1
+      4. Input Date Range
+         ├─> Example: Date = '2024-09-06'
+      5. Predict NO2 Concentration
+         ├─> Calculate Distance to Nearest Coordinates
+         ├─> Extract NO2 Data from Dataset
+         ├─> Preprocess Data
+         ├─> Scale Data using MinMaxScaler
+         ├─> Split Data into Training and Testing Sets
+         ├─> Create LSTM Model
+         ├─> Train LSTM Model
+         ├─> Make Predictions
+         └─> Transform Predictions Back to Original Scale
+      6. Generate Prediction Output
+         ├─> Create DataFrame with Dates and Predictions
+         └─> Example Output:
+             ┌─────────────┬───────────────────────────────┐
+             │     Date    │ NO2 Concentration (mol/m²)   │
+             ├─────────────┼───────────────────────────────┤
+             │ 2024-09-07  │              0.0325           │
+             │ 2024-09-08  │              0.0347           │
+             │ 2024-09-09  │              0.0301           │
+             │ 2024-09-10  │              0.0298           │
+             └─────────────┴───────────────────────────────┘
+      7. End
 
 
 ### Workflow Breakdown:
