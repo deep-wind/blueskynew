@@ -7,7 +7,9 @@ textblob
 PyPDF2
 pandas
 streamlit_folium
-tensorflow
+tensorflow==2.9.0
+keras
+tensorflow-cpu
 smopy
 scikit-learn
 sentinelsat
@@ -15,7 +17,7 @@ xarray
 requests
 gdown
 grpcio-status==1.33.2
-protobuf==3.19.6
+protobuf
 
 
 
