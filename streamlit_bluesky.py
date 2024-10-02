@@ -83,6 +83,9 @@ no2 = L3_data1.variables['tropospheric_NO2_column_number_density'][:,:,:]
 def predict(latitude_input, longitude_input, date):
     predict_days = abs((datetime.strptime('2024-09-05',"%Y-%m-%d") - datetime.strptime(date,"%Y-%m-%d")).days)
     st.write("Predict days:", predict_days)
+    
+    if predict_days > 4:
+        predict_days = 4
 
     sq_diff_lat = (lat - latitude_input) ** 2
     sq_diff_lon = (lon - longitude_input) ** 2
