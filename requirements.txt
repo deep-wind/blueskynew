@@ -16,7 +16,7 @@ requests
 gdown
 grpcio-status==1.33.2
 tensorflow==2.10.0
-protobuf==3.9.2
+protobuf
 numpy
 pandas
 matplotlib
