@@ -7,7 +7,7 @@ textblob
 PyPDF2
 pandas
 streamlit_folium
-tensorflow
+
 keras
 tensorflow-cpu
 smopy
@@ -17,5 +17,5 @@ xarray
 requests
 gdown
 grpcio-status==1.33.2
-protobuf==3.20.*
+
 
