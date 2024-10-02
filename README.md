@@ -1,40 +1,7 @@
 > #### https://www.hackerearth.com/challenges/hackathon/ieee-machine-learning-hackathon/
 ### Project Outline: Solar Image-Based NO2 Prediction System
 
-+---------------------------------+
-|        NO₂ Concentrations       |
-+---------------------------------+
-|                                 |
-| 0 - 0.02 mol/m² (0 - 40 ppb)    | ---> Good (Safe) Levels
-| 0.02 - 0.04 mol/m² (41 - 80 ppb)| ---> Moderate Levels
-| 0.04 - 0.09 mol/m²(81 - 180 ppb)| ---> Unhealthy Levels
-| 0.09 mol/m² and above (181 ppb) | ---> Hazardous Levels
-|                                 |
-+---------------------------------+
 
-+---------------------------------+
-|         Health Effects          |
-+---------------------------------+
-| Short-Term: Coughing, Wheezing  |
-| Long-Term: Respiratory issues   |
-|                                 |
-+---------------------------------+
-
-+---------------------------------+
-|         Sources of NO₂          |
-+---------------------------------+
-| - Motor Vehicles                |
-| - Power Plants                  |
-+---------------------------------+
-
-+---------------------------------+
-|       Control Measures          |
-+---------------------------------+
-| 1. Limit Vehicle Use            |
-| 2. Use Cleaner Energy Sources   |
-| 3. Improve Home Ventilation     |
-| 4. Stay Informed on Air Quality |
-+---------------------------------+
 
 **Objective**: Develop an interactive system that predicts NO2 levels based on satellite imagery, time-series LSTM models, and user-selected geographic locations. The tool leverages hyperspectral satellite data and geospatial visualization techniques to display predictions of NO2 concentrations over specified regions and dates.
 
@@ -166,3 +133,43 @@ https://github.com/user-attachments/assets/abeaa807-b535-47ae-82f8-4ff14bdca667
 9. streamlit run newbluesky.py
 
    drive - https://drive.google.com/drive/folders/1w9Pqe55qZDsKQeonXtv3qUZo-4xJ45Ei?usp=drive_link
+
+
+
+
+## Basic Info
+
+      +---------------------------------+
+      |        NO₂ Concentrations       |
+      +---------------------------------+
+      |                                 |
+      | 0 - 0.02 mol/m² (0 - 40 ppb)    | ---> Good (Safe) Levels
+      | 0.02 - 0.04 mol/m² (41 - 80 ppb)| ---> Moderate Levels
+      | 0.04 - 0.09 mol/m²(81 - 180 ppb)| ---> Unhealthy Levels
+      | 0.09 mol/m² and above (181 ppb) | ---> Hazardous Levels
+      |                                 |
+      +---------------------------------+
+      
+      +---------------------------------+
+      |         Health Effects          |
+      +---------------------------------+
+      | Short-Term: Coughing, Wheezing  |
+      | Long-Term: Respiratory issues   |
+      |                                 |
+      +---------------------------------+
+      
+      +---------------------------------+
+      |         Sources of NO₂          |
+      +---------------------------------+
+      | - Motor Vehicles                |
+      | - Power Plants                  |
+      +---------------------------------+
+      
+      +---------------------------------+
+      |       Control Measures          |
+      +---------------------------------+
+      | 1. Limit Vehicle Use            |
+      | 2. Use Cleaner Energy Sources   |
+      | 3. Improve Home Ventilation     |
+      | 4. Stay Informed on Air Quality |
+      +---------------------------------+
