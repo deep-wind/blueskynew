@@ -17,7 +17,5 @@ xarray
 requests
 gdown
 grpcio-status==1.33.2
-protobuf
-
-
+protobuf==3.20.*
 
