@@ -7,10 +7,9 @@ textblob
 PyPDF2
 pandas
 streamlit_folium
-
-keras
-tensorflow-cpu
+tensorflow
 smopy
+keras
 scikit-learn
 sentinelsat
 xarray
