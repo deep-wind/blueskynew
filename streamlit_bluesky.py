@@ -307,7 +307,46 @@ def main():
         output = predict(latitude_input, longitude_input, date)
         st.info(f"NO2 level predicted: {output} mol/m²")
         
-        # st.info(f"Predicted NO2 Concentration is {output} molecules/cm2".format(round(result,4))) 
+        # NO₂ concentration data
+        no2_genereal_data = {
+            "NO₂ Concentrations (mol/m²) / ppb": [
+                "0 - 0.02 mol/m² (0 - 40 ppb)", 
+                "0.02 - 0.04 mol/m² (41 - 80 ppb)", 
+                "0.04 - 0.09 mol/m² (81 - 180 ppb)", 
+                "0.09 mol/m² and above (181 ppb)"
+            ],
+            "Health Impact": [
+                "Good (Safe) Levels", 
+                "Moderate Levels", 
+                "Unhealthy Levels", 
+                "Hazardous Levels"
+            ]
+        }
+        
+        # Create DataFrame
+        df_no2 = pd.DataFrame(no2_genereal_data)
+        
+        # Function to color rows based on levels
+        def color_rows(row):
+            if "Good" in row["Health Impact"]:
+                return ['background-color: lightgreen'] * len(row)
+            elif "Moderate" in row["Health Impact"]:
+                return ['background-color: yellow'] * len(row)
+            elif "Unhealthy" in row["Health Impact"]:
+                return ['background-color: orange'] * len(row)
+            elif "Hazardous" in row["Health Impact"]:
+                return ['background-color: red'] * len(row)
+            return [''] * len(row)
+        
+        # Style the DataFrame with colors
+        styled_df = df_no2.style.apply(color_rows, axis=1)
+        
+        # Streamlit app
+        st.title("NO₂ Concentration Overview")
+        
+        # Display the styled table
+        st.dataframe(styled_df)
+
 
 if __name__ == '__main__':
     main()
