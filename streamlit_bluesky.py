@@ -103,7 +103,7 @@ def predict(latitude_input, longitude_input, date):
     for i in dt:
         df.iloc[i] = no2[i, min_index_lat, min_index_lon]
         
-    df.to_csv(r"5days_combined.csv")
+    df.to_csv(r".spyder-py3/project/data/20days_combined.csv")
 
     
     ##############################################
@@ -111,7 +111,7 @@ def predict(latitude_input, longitude_input, date):
     ##############################################
    
     ### Data Collection
-    data_frame=pd.read_csv(r"5days_combined.csv")
+    data_frame=pd.read_csv(r".spyder-py3/project/data/20days_combined.csv")
     df1=data_frame.reset_index()['NO2']
     st.write(df1)
     ### LSTM are sensitive to the scale of the data. so we apply MinMax scaler 
