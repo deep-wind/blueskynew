@@ -246,7 +246,7 @@ def predict(latitude_input, longitude_input, date):
                               columns=['NO2 Concentration (mol/m²)'])
     
     # Add the date range as a column
-    no2_output['Date'] = pd.date_range(start=date, periods=predict_days, freq='D')
+    no2_output['Date'] = pd.date_range(start=date, periods=predict_days, freq='D').date
     
     # Reorder the columns to have 'Date' first
     no2_output = no2_output[['Date', 'NO2 Concentration (mol/m²)']]
