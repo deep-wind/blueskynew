@@ -1,15 +1,12 @@
 streamlit
 netCDF4
 reportlab
-matplotlib
-numpy
 textblob
 PyPDF2
 pandas
 streamlit_folium
 smopy
 keras
-scikit-learn
 sentinelsat
 xarray
 requests
@@ -21,3 +18,4 @@ numpy
 pandas
 matplotlib
 scikit-learn
+plotly
