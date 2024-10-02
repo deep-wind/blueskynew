@@ -7,7 +7,7 @@ textblob
 PyPDF2
 pandas
 streamlit_folium
-tensorflow==2.9.0
+tensorflow
 keras
 tensorflow-cpu
 smopy
