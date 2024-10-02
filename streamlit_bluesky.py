@@ -305,4 +305,4 @@ def main():
         # st.info(f"Predicted NO2 Concentration is {output} molecules/cm2".format(round(result,4))) 
 
 if __name__ == '__main__':
-    main() i want to make a flow diagram to explain how this project works to a very basic beginner with some sample example
+    main()
