@@ -274,7 +274,7 @@ def predict(latitude_input, longitude_input, date):
 
 def main():
     st.markdown("<h1 style='color:green; text-align:center; font-family:times new roman; font-weight:bold; font-size:20pt;'>NO2 Prediction</h1>", unsafe_allow_html=True)
-    st.markdown("<h1 style='text-align: left; font-weight:bold;color:black;background-color:white;font-size:11pt;'> Choose any Location on the Map📌</h1>",unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center; font-weight:bold;color:black;background-color:white;font-size:11pt;'> Choose any Location on the Map📌</h1>",unsafe_allow_html=True)
     st.markdown(
         """
     <style>
@@ -285,10 +285,21 @@ def main():
     """,
         unsafe_allow_html=True,
     )
+
+    # Define the bounds fot the map
+    southwest = [-9.015302333420586, 422.05078125000006]
+    northeast = [46.37725420510028, 485.77148437500006]
+    center_lat = (southwest[0] + northeast[0]) / 2
+    center_lng = (southwest[1] + northeast[1]) / 2
     
-    m = folium.Map()
+    # Create a Folium map centered on the calculated coordinates with the specified zoom level
+    m = folium.Map(location=[center_lat, center_lng], zoom_start=4)
+    folium.Rectangle(bounds=[southwest, northeast], color='blue', fill=True, fill_opacity=0.1).add_to(m)
     m.add_child(folium.LatLngPopup())
+    
+    # Call to render Folium map in Streamlit
     map = st_folium(m, height=400, width=700)
+    
     try:
         latitude_input = float(map['last_clicked']['lat'])
         longitude_input = float(map['last_clicked']['lng'])
