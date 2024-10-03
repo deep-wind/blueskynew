@@ -1,22 +1,58 @@
-> #### https://www.hackerearth.com/challenges/hackathon/ieee-machine-learning-hackathon/
-### Project Outline: Solar Image-Based NO2 Prediction System
+### NO2 Prediction System using a combination of hyper-spectral Satellite imagery data and maps
+
+> #### The Bluesky above challenge - https://www.hackerearth.com/challenges/hackathon/ieee-machine-learning-hackathon/
+
+> #### Video Reference - https://vimeo.com/672448685
+ 
+
+**Objective**: To develop an interactive system that predicts NO2 levels based on satellite imagery, time-series LSTM (Long Short-Term Memory) network models, and user-selected geographic locations. The tool leverages hyperspectral satellite data and geospatial visualization techniques to display predictions of NO2 concentrations over specified regions and dates.
 
 
+### Diagram of Workflow:
 
-**Objective**: Develop an interactive system that predicts NO2 levels based on satellite imagery, time-series LSTM models, and user-selected geographic locations. The tool leverages hyperspectral satellite data and geospatial visualization techniques to display predictions of NO2 concentrations over specified regions and dates.
+1. **User Input**: Location + Date → Interactive Folium Map → Latitude/Longitude Coordinates Extracted
+2. **Data Preprocessing**: Retrieve satellite data → Apply preprocessing and scaling → Prepare for model input.
+3. **LSTM Model**: Feed past NO2 data → LSTM Model → Predict future NO2 values.
+4. **Result Display**: Show results on the map → Display NO2 levels.
+
+Flow diagram to illustrate the workflow:
+
+```
++---------------------+       +----------------------------+       +----------------------+
+|                     |       |                            |       |                      |
+|   User selects      |       |  Preprocess satellite data |       |   Train LSTM Model   |
+|   location and date | ----> |  (Download, clean, scale)  | ----> |   Predict NO2 levels |
+|                     |       |                            |       |                      |
++---------------------+       +----------------------------+       +----------------------+
+       👆🏻
+        |                                                                 |
+        |                                                                 |
+                                                                          v
++-------------------+                                     +-----------------------+
+|                   |                                     |                       |
+|   Streamlit       |                                     |    Display predicted  |
+|   Folium Map      |                                     |    NO2 concentration  |
+|                   |                                     |                       |
++-------------------+                                     +-----------------------+
+```
 
 ---
-OverAll Flow:
+
+### OverAll Flow:
 
       1. Start
+      
       2. Download Satellite Data
          └─> Check if file exists
              ├─> Yes: Load dataset
              └─> No: Download from Google Drive
+             
       3. Input Latitude and Longitude
          ├─> Example: Latitude = 51.5, Longitude = -0.1
+         
       4. Input Date Range
          ├─> Example: Date = '2024-09-06'
+         
       5. Predict NO2 Concentration
          ├─> Calculate Distance to Nearest Coordinates
          ├─> Extract NO2 Data from Dataset
@@ -27,17 +63,20 @@ OverAll Flow:
          ├─> Train LSTM Model
          ├─> Make Predictions
          └─> Transform Predictions Back to Original Scale
+         
       6. Generate Prediction Output
          ├─> Create DataFrame with Dates and Predictions
          └─> Example Output:
+         
              ┌─────────────┬───────────────────────────────┐
-             │     Date    │ NO2 Concentration (mol/m²)   │
+             │     Date    │ NO2 Concentration (mol/m²)    │
              ├─────────────┼───────────────────────────────┤
              │ 2024-09-07  │              0.0325           │
              │ 2024-09-08  │              0.0347           │
              │ 2024-09-09  │              0.0301           │
              │ 2024-09-10  │              0.0298           │
              └─────────────┴───────────────────────────────┘
+      
       7. End
 
 
@@ -68,41 +107,8 @@ OverAll Flow:
      - A **date** for the desired NO2 level prediction (future dates).
    - **Results Display**: NO2 concentration prediction is displayed along with map-based results, with the possibility to view the predicted concentrations over time and space.
 
-#### 5. **Visualization**:
-   - **Map**: The interactive map (via **Folium**) displays the user’s chosen location for prediction.
-   - **Charts**: Plot results (NO2 concentrations over time) using **Matplotlib** to visually show past vs. predicted values.
-   
 ---
 
-### Diagram of Workflow:
-
-1. **User Input**: Location + Date → Interactive Folium Map → Latitude/Longitude Coordinates Extracted
-2. **Data Preprocessing**: Retrieve satellite data → Apply preprocessing and scaling → Prepare for model input.
-3. **LSTM Model**: Feed past NO2 data → LSTM Model → Predict future NO2 values.
-4. **Result Display**: Show results on the map → Display NO2 levels in a readable, user-friendly format.
-
-Here is a high-level flow diagram to illustrate the workflow:
-
-```
-+---------------------+       +----------------------------+       +----------------------+
-|                     |       |                            |       |                      |
-|   User selects      |       |  Preprocess satellite data |       |   Train LSTM Model   |
-|   location and date | ----> |  (Download, clean, scale)  | ----> |   Predict NO2 levels |
-|                     |       |                            |       |                      |
-+---------------------+       +----------------------------+       +----------------------+
-       ⬆️
-        |                                                                 |
-        |                                                                 |
-                                                                          v
-+-------------------+                                     +-----------------------+
-|                   |                                     |                       |
-|   Visualize on    |                                     |    Display predicted  |
-|   Folium Map      |                                     |    NO2 concentration  |
-|                   |                                     |                       |
-+-------------------+                                     +-----------------------+
-```
-
----
 
 
 ## Hyperspectral Satelite Data downloaded from Copernicus:
@@ -111,7 +117,6 @@ Here is a high-level flow diagram to illustrate the workflow:
 - We download the hyperspectral sentinel 5P satellite data from the copernicus datahub.
 - This may download upto 9.4 GB of netCDF data. More info navigate to this page - https://sentinels.copernicus.eu/web/sentinel/missions/sentinel-5p.
 - For reliable functioning of the NO2 estimation model, satellite data upto 5 days prior to the time of estimation needs to be available.
--  **Note:** When prompted to enter the 'start date', enter a date at least 3 days prior to the date when the first estimation is required.
 
 https://github.com/user-attachments/assets/abeaa807-b535-47ae-82f8-4ff14bdca667
 
@@ -120,8 +125,8 @@ https://github.com/user-attachments/assets/abeaa807-b535-47ae-82f8-4ff14bdca667
 
 1. Create a folder
 
-![image](https://github.com/user-attachments/assets/a9821684-61c5-499e-85b3-ad2202289c45)
-![image](https://github.com/user-attachments/assets/ff84ba92-93f3-45f9-a8e0-e6a21dd47c82)
+      <img width="560" src="https://github.com/user-attachments/assets/a9821684-61c5-499e-85b3-ad2202289c45">
+      <img width="560" src="https://github.com/user-attachments/assets/ff84ba92-93f3-45f9-a8e0-e6a21dd47c82">
 
 2. download harp zip , extract and place inside the above folder - https://github.com/stcorp/harp/releases/tag/1.23
 3. conda install -c conda-forge visan
@@ -139,17 +144,8 @@ https://github.com/user-attachments/assets/abeaa807-b535-47ae-82f8-4ff14bdca667
 
 ## Basic Info
 
-      +---------------------------------+
-      |        NO₂ Concentrations       |
-      +---------------------------------+
-      |                                 |
-      | 0 - 0.02 mol/m² (0 - 40 ppb)    | ---> Good (Safe) Levels
-      | 0.02 - 0.04 mol/m² (41 - 80 ppb)| ---> Moderate Levels
-      | 0.04 - 0.09 mol/m²(81 - 180 ppb)| ---> Unhealthy Levels
-      | 0.09 mol/m² and above (181 ppb) | ---> Hazardous Levels
-      |                                 |
-      +---------------------------------+
-      
+<img width="525" alt="{D2603589-764B-4442-9626-13E6BF1AF23E}" src="https://github.com/user-attachments/assets/b2d0d973-2b1d-4da0-aeb9-54babc899b39">
+
       +---------------------------------+
       |         Health Effects          |
       +---------------------------------+
