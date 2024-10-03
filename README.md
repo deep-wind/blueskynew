@@ -5,7 +5,6 @@
 > #### Video Reference - https://vimeo.com/672448685
 ---
  
- * Recommended to run this project in Local
 
 **Objective**: To develop an interactive system that predicts NO2 levels based on satellite imagery, time-series LSTM (Long Short-Term Memory) network models, and user-selected geographic locations. The tool leverages hyperspectral satellite data and geospatial visualization techniques to display predictions of NO2 concentrations over specified regions and dates.
 
@@ -125,24 +124,34 @@ https://github.com/user-attachments/assets/abeaa807-b535-47ae-82f8-4ff14bdca667
 
 ## Steps to run the project in Local:
 
+### *Recommended to run this project in Local
+
 1. Create a folder
 
       <img width="560" src="https://github.com/user-attachments/assets/a9821684-61c5-499e-85b3-ad2202289c45">
       <img width="560" src="https://github.com/user-attachments/assets/ff84ba92-93f3-45f9-a8e0-e6a21dd47c82">
 
 2. download harp zip , extract and place inside the above folder - https://github.com/stcorp/harp/releases/tag/1.23
+
 3. conda install -c conda-forge visan
+
 4. conda install -c conda-forge dask
+
 5. cd harp > conda activate visan
+
 6. cd..
+
 7. pip install requirements.txt
+
 8. python newbluesky.py
+
 9. streamlit run newbluesky.py
 
    drive - https://drive.google.com/drive/folders/1w9Pqe55qZDsKQeonXtv3qUZo-4xJ45Ei?usp=drive_link
 
 
 
+---
 
 ## Basic Info
 
