@@ -170,7 +170,7 @@ def predict(latitude_input, longitude_input, date):
     ### Create the Stacked LSTM model
     model=Sequential()
     model.add(LSTM(50,return_sequences=True,input_shape=(1,1)))
-    model.add(LSTM(50,return_sequences=True))
+    # model.add(LSTM(50,return_sequences=True))
     model.add(LSTM(50))
     model.add(Dense(1))
     model.compile(loss='mean_squared_error',optimizer='adam')
