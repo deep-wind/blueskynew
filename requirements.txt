@@ -4,7 +4,6 @@ reportlab
 textblob
 PyPDF2
 pandas
-cudnn
 streamlit_folium
 smopy
 keras
