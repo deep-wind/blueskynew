@@ -17,4 +17,5 @@ pandas
 matplotlib
 scikit-learn
 plotly
+tensorflow
 
