@@ -19,9 +19,6 @@ pandas
 matplotlib
 scikit-learn
 plotly
-# Install TensorFlow with GPU support
-tensorflow-gpu==2.18
-
 # Other Python dependencies
 numpy==1.23.1
 matplotlib==3.4.3
