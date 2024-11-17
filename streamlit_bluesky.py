@@ -7,7 +7,7 @@ import requests
 import os
 
 # Disable GPU usage
-os.environ["CUDA_VISIBLE_DEVICES"] = ""
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 import streamlit as st
 import pandas as pd
 #import harp
