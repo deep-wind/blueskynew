@@ -13,7 +13,7 @@ xarray
 requests
 gdown
 grpcio-status==1.33.2
-tensorflow
+tensorflow==2.12.0
 protobuf
 numpy
 pandas
