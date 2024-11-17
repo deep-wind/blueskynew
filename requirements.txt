@@ -12,7 +12,6 @@ xarray
 requests
 gdown
 grpcio-status==1.33.2
---upgrade pip
 tensorflow==2.10.0
 protobuf
 numpy
