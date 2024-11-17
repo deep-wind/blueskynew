@@ -22,9 +22,7 @@ import datetime
 import time
 import math
 from sklearn.metrics import mean_squared_error
-from tensorflow.keras.models import Sequential,load_model
-from tensorflow.keras.layers import Dense
-from tensorflow.keras.layers import LSTM
+from tensorflow.keras.models import load_model
 import matplotlib.pyplot as plt 
 from datetime import datetime
 from sklearn.preprocessing import MinMaxScaler
