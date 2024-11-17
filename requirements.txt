@@ -18,5 +18,5 @@ matplotlib
 scikit-learn
 plotly
 streamlit==1.13.0
-tensorflow==2.10.0
+tensorflow>=2.10.0
 
