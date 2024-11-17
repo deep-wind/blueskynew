@@ -178,8 +178,8 @@ def predict(latitude_input, longitude_input, date):
     
     model.summary()
     model.fit(X_train,y_train,validation_data=(X_test,ytest),epochs=50,batch_size=8,verbose=1)
-    
-
+    model.save('my_model.h5')  
+    #old_models = tf.keras.models.load_model('C:/Users/PRAMILA/PycharmProjects/Mini/model.h5')
     ### Lets Do the prediction and check performance metrics
     train_predict=model.predict(X_train)
     test_predict=model.predict(X_test)
