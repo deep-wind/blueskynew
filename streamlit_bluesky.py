@@ -4,12 +4,16 @@ Created on Mon Oct 31 19:57:21 2022
 @author: PRAMILA
 """
 import requests
+import os
+
+# Disable GPU usage
+os.environ["CUDA_VISIBLE_DEVICES"] = ""
 import streamlit as st
 import pandas as pd
 #import harp
 from netCDF4 import Dataset
-import os
 from os.path import join
+
 import glob
 import xarray as xr
 import numpy as np
