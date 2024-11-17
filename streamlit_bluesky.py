@@ -22,7 +22,7 @@ import datetime
 import time
 import math
 from sklearn.metrics import mean_squared_error
-from tensorflow.keras.models import Sequential
+from tensorflow.keras.models import Sequential,load_model
 from tensorflow.keras.layers import Dense
 from tensorflow.keras.layers import LSTM
 import matplotlib.pyplot as plt 
@@ -168,18 +168,18 @@ def predict(latitude_input, longitude_input, date):
     # print(X_test.shape), print(ytest.shape)
     
     ### Create the Stacked LSTM model
-    model=Sequential()
-    model.add(LSTM(50,return_sequences=True,input_shape=(1,1)))
-    # model.add(LSTM(50,return_sequences=True))
-    model.add(LSTM(50))
-    model.add(Dense(1))
-    model.compile(loss='mean_squared_error',optimizer='adam')
+    # model=Sequential()
+    # model.add(LSTM(50,return_sequences=True,input_shape=(1,1)))
+    # # model.add(LSTM(50,return_sequences=True))
+    # model.add(LSTM(50))
+    # model.add(Dense(1))
+    # model.compile(loss='mean_squared_error',optimizer='adam')
     
     
-    model.summary()
-    model.fit(X_train,y_train,validation_data=(X_test,ytest),epochs=50,batch_size=8,verbose=1)
-    model.save('my_model.h5')  
-    #old_models = tf.keras.models.load_model('C:/Users/PRAMILA/PycharmProjects/Mini/model.h5')
+    # model.summary()
+    # model.fit(X_train,y_train,validation_data=(X_test,ytest),epochs=50,batch_size=8,verbose=1)
+    # model.save('my_model.h5')  
+    model = load_model('my_model.h5')
     ### Lets Do the prediction and check performance metrics
     train_predict=model.predict(X_train)
     test_predict=model.predict(X_test)
