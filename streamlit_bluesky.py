@@ -7,7 +7,6 @@ import requests
 import os
 
 # Disable GPU usage
-os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 import streamlit as st
 import pandas as pd
 #import harp
@@ -39,6 +38,7 @@ import plotly.express as px
 # specify that TensorFlow performs computations using the CPU
 os.environ['TF_ENABLE_MLIR_OPTIMIZATIONS'] = '1'
 
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 # BlueSky Above: Pollution estimation using hyper-spectral satellite imagery and maps
 
