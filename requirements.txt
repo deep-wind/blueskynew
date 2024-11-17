@@ -17,9 +17,6 @@ pandas
 matplotlib
 scikit-learn
 plotly
-# Other Python dependencies
-numpy==1.23.1
-matplotlib==3.4.3
 streamlit==1.13.0
 tensorflow==2.10.0
 
