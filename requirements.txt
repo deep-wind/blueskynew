@@ -1,4 +1,4 @@
---upgrade pip
+ pip==24.3.1 
 streamlit
 netCDF4
 reportlab
